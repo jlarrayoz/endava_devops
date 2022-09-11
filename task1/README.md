@@ -1,6 +1,6 @@
 ## **Task 1**
 
-Repo creado para compartir con los profes la solución a las diferntes homeworks
+Solución de la primer homework asignada en el curso
 
 ### **Punto 1**
 
