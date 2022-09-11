@@ -18,7 +18,7 @@ Ejemplo:
 chmod +x getDate.sh
 ```
 
-** PARA SABER COMO UTILIZAR LOS SCRIPTS se deben de ejecutar sin pasarle params **
+**PARA SABER COMO UTILIZAR LOS SCRIPTS se deben de ejecutar sin pasarle params**
 
 
 
