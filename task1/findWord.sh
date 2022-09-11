@@ -1,12 +1,22 @@
 #!/bin/bash
 
+function usage {
+   cat << EOF
+
+Busca la palabra PALABRA_A_BUSCAR en el archivo ./resources/textoEjemplo.txt y muestra en stdout la cantidad de veces que aparece esa palabra.
+
+Uso: findWord.sh PALABRA_A_BUSCAR
+
+EOF
+   exit 1
+}
+
+
 #Me fijo si la cantidad de params recibidas por el script es !=1
 #Si es distinto, muestro a pantalla como usarlo y termino la ejecucion del script
 if [ $# -ne 1 ]
 then
-    echo "uso: $0 PALABRA_A_BUSCAR"
-    echo "NOTA: la busqueda es key sensitive"
-    exit 0
+   usage;
 fi  
 
 echo "Palabra a buscar: $1"
