@@ -10,6 +10,7 @@ El archivo **_'Distro Linux.pdf'_** contiene el punto uno de la tarea
 
 1. El script getDate.sh muestra la fecha del sistema en formato yyyy-MM-dd
 2. El script findWord.sh busca una palabra recibida por param en el archivo ./resources/textoEjemplo.txt. Si se ejecuta el script sin params explica como usarlo
+3. El script replaceWord.sh busca una palabra y la remplaza por otra (Ambas recibidas por param) en el archivo ./resources/textoRemplazo.txt. Este script NO remplaza el contenido del archivo original, el resultado lo guarda en nu nuevo archivo (./resources/textoActualizado.txt)
 
 **NOTA**
 ```
