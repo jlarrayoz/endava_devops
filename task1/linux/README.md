@@ -2,7 +2,7 @@
 
 
 1. El script **getDate.sh** muestra la fecha del sistema en formato yyyy-MM-dd
-2. El script **findWord.sh** busca una palabra recibida por param en el archivo ./resources/textoEjemplo.txt.
+2. El script **findWord.sh** busca una palabra recibida por param en el archivo ../resources/textoEjemplo.txt.
 3. El script **replaceWord.sh** busca una palabra y la remplaza por otra (Ambas recibidas por param)
 4. El script **getLastLines.sh** muestra las X últimas lineas de un archivo
 
@@ -16,8 +16,7 @@ chmod +x getDate.sh
 
 **PARA SABER COMO UTILIZAR LOS SCRIPTS se deben de ejecutar sin pasarle params**
 
-### Ejemplos de uso
-
+### Ejemplos de uso ###
 
 Script 1:
 
@@ -88,3 +87,5 @@ para los muchachos
 de las aceitunas.
 
 ```
+
+_Este ejemplo muestra las ultimas 4 lineas del archivo ../resources/textoEjemplo.txt. Ambos datos son recibidos por params._
