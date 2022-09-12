@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Funcion que describe el uso del script
 function usage {
    cat << EOF
 
@@ -28,6 +29,6 @@ echo "Palabra destino: $2"
 
 
 #Busca  PALABRA_ORIGEN y la reemplaza por PALABRA_DESTINO
-#El resultado de reemplazar va a stdout y en este caso se redirecciona al archivo resources/textoActualizado.txt
+#El resultado de reemplazar va a stdout y en este caso se redirecciona al archivo ../resources/textoActualizado.txt
 #Esto se hace para no perder el archivo original
 sed s/$1/$2/ ../resources/textoEjemplo.txt 1> ../resources/textoActualizado.txt
