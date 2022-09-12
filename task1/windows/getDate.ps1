@@ -4,4 +4,4 @@
 $fecha = Get-Date -Format "yyyy-MM-dd"
 
 #Imprimo la fecha a consola con un mensaje previo
-Write-Output "La fecha del sistema es $fecha"
+Write-Output "La fecha del sistema es: $fecha"
