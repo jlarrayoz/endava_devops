@@ -3,7 +3,7 @@
 function usage {
    cat << EOF
 
-Remplaza PALABRA_ORIGEN por PALABRA_DESTINO del archivo ./resources/textoRemplazo.txt y guarda el resultado en el archivo textoActualizado.txt
+Remplaza PALABRA_ORIGEN por PALABRA_DESTINO del archivo ../resources/textoRemplazo.txt y guarda el resultado en el archivo textoActualizado.txt
 
 Uso: replaceWord.sh PALABRA_ORIGEN PALABRA_DESTINO
 
