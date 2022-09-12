@@ -3,7 +3,7 @@
 function usage {
    cat << EOF
 
-Busca la palabra PALABRA_A_BUSCAR en el archivo ./resources/textoEjemplo.txt y muestra en stdout la cantidad de veces que aparece esa palabra.
+Busca la palabra PALABRA_A_BUSCAR en el archivo ../resources/textoEjemplo.txt y muestra en stdout la cantidad de veces que aparece esa palabra.
 
 Uso: findWord.sh PALABRA_A_BUSCAR
 
@@ -25,7 +25,7 @@ echo "Palabra a buscar: $1"
 #El param -o para que solo se quede con la parte de la linea que machea
 #el comando wc se utiliza para contar la cantidad de palabras del output obtenido del grep
 #Guardo la cantidad de palabras encontradas en la variable cantidad 
-cantidad=($(grep -o $1  ./resources/textoEjemplo.txt | wc -w))
+cantidad=($(grep -o $1  ../resources/textoEjemplo.txt | wc -w))
 
 #Si encontre la palabra muestro a pantalla la cantidad de veces que aparece
 if [ $cantidad -gt 0 ]
