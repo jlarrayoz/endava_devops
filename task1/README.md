@@ -14,7 +14,8 @@ Existen 2 carpetas en el repo:
 - [windows][3]: Contiene los scripts de powershell
 
 _Se aprovecho la instancia para crear scripts que utilicen algunos de los conceptos vistos en clases, como ser pasaje de params, pipelines, etc._
-_Para cada uno de los puntos de la terea, se creo un script que resuelve el problema.
+
+_Para cada uno de los puntos de la terea, se creo un script que resuelve el problema._
 
 [1]: Distro_Linux.pdf
 [2]: linux
