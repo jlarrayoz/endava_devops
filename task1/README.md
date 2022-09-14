@@ -15,6 +15,7 @@ Existen 2 carpetas en el repo:
 
 _Se aprovecho la instancia para crear scripts que utilicen algunos de los conceptos vistos en clases, como ser pasaje de params, pipelines, etc._
 
+
 [1]: Distro_Linux.pdf
 [2]: linux
 [3]: windows
