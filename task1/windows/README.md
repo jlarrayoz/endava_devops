@@ -34,6 +34,8 @@ La palabra Tarara aparece 7 vez/veces
 
 _Se recibe por param el path del archivo a utilizar y la palabra a buscar
 
+**NOTA:** La búsqueda es key sensitive por lo que la palabra Tarara se considera distinta a tarara.
+
 Script 3:
 
 ```bash
