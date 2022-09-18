@@ -41,6 +41,7 @@ La palabra Tarara se encontro 7 vez/veces
 ```
 
 _La palabra se busca en el archivo "textoEjemplo.txt" que se encuentra en la parpeta resources de la raiz del repo._
+
 **NOTA:** La búsqueda es key sensitive por lo que la palabra Tarara se considera distinta a tarara.
 
 Script 3:
