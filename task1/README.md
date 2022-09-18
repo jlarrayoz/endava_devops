@@ -13,10 +13,11 @@ Existen 2 carpetas en el repo:
 - [linux][2]: Contiene los scripts bash
 - [windows][3]: Contiene los scripts de powershell
 
-La carpeta resources contiene archivos auxiliares para el correcto funcionamiento de los scripts.
+La carpeta [resources][4] contiene archivos auxiliares para el correcto funcionamiento de los scripts.
 
 _Se aprovecho la instancia para crear scripts que utilicen algunos de los conceptos vistos en clases, como ser pasaje de params, pipelines, etc._
 
 [1]: Distro_Linux.pdf
 [2]: linux
 [3]: windows
+[4]: resources
