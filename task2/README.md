@@ -20,7 +20,7 @@ A continuación podemos ver el contenido del archivo:
 # Esto generalmente no se toca
 Vagrant.configure("2") do |config|
 
-
+  # Se define la configuracion del nodo1
   config.vm.define "nodo1" do |nodo1|
     # Seleccionamos la imagen de la VM que queremos utilizar
     # En este caso corresponde a una imagen de Ubuntu 18.04 LTS
@@ -51,6 +51,7 @@ Vagrant.configure("2") do |config|
 
   end
 
+  # Se define la configuracion del nodo2
   config.vm.define "nodo2" do |nodo2|
     # Seleccionamos la imagen de la VM que queremos utilizar
     # En este caso corresponde a una imagen de Ubuntu 18.04 LTS
