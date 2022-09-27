@@ -7,6 +7,7 @@ Repo creado para compartir con los profes la solución a las diferentes homework
 ### *Tasks*
 
 1. *[Sistemas operativos][1]*
-2. Proximamente
+2. *[Vagrant y Docker][2]*
 
 [1]: task1
+[2]: task2
