@@ -7,8 +7,10 @@ Solución de la segunda homework asignada en el curso
 El archivo **_['Vagrantfile'][1]_** contiene el punto uno de la tarea.
 
 La particularidad del archivo es que define la configuración para 2 VM:
-- nodo1
-- nodo2
+- nodo1 (IP 192.168.56.100)
+- nodo2 (IP 192.168.56.101)
+
+_Se utiliza una private network para conectar los 2 nodos._
 
 A continuación podemos ver el contenido del archivo:
 
@@ -27,6 +29,8 @@ Vagrant.configure("2") do |config|
     # Mediante el tag config.vm.box_version tambien podemos definir una version especifica de la imagen
     # Por mas imagenes visitar https://vagrantcloud.com/search
     nodo1.vm.box = "ubuntu/bionic64"
+
+    #version de la imagen a utilizar
     nodo1.vm.box_version = "20220916.0.0"
 
     #Se define un hostname para la VM
@@ -58,6 +62,8 @@ Vagrant.configure("2") do |config|
     # Mediante el tag config.vm.box_version tambien podemos definir una version especifica de la imagen
     # Por mas imagenes visitar https://vagrantcloud.com/search
     nodo2.vm.box = "ubuntu/bionic64"
+
+    #version de la imagen a utilizar
     nodo2.vm.box_version = "20220916.0.0"
 
     #Se define un hostname para la VM
@@ -85,4 +91,85 @@ end
 
 ```
 
+Cada nodo se aprovisiona con un script diferente que se encuentra en la carpeta config_nodos.
+
+```yaml 
+  nodo2.vm.provision :shell, path: "config_nodos/nodo2/bootstrap_nodo2.sh"
+```
+
+- El script contiene los siguientes comandos:
+
+```bash
+#!/usr/bin/env bash
+
+#Update de los packetes de la VM
+apt-get update
+
+#Instalo docker
+apt-get install -y docker.io
+
+#Instalar git (ya viene en la imagen utilizada)
+sudo apt-get install -y git
+
+#Se instala apache para prueba de la VM y se copia un archivo html de ejemplo
+apt-get install -y apache2
+
+if ! [ -L /var/www ]; then
+  rm -rf /var/www
+  ln -fs /vagrant/config_nodos/nodo1/content /var/www
+fi
+
+#Copio el shell script de prueba al home de la VM
+cp /vagrant/config_nodos/nodo1/testNode.sh /home/vagrant
+chmod +x /home/vagrant/testNode.sh
+
+```
+
+Los scripts de aprovisionamiento son practicamente iguales
+- Instalan docker y git
+- Se levanta un servidor web apache en cada VM para probar la conectividad entre ambos nodos.
+- Para testear que un nodo se puede comunicar con la otra VM se deja en el HOME un shell script llamado testNode.sh, que hace lo siguiente:
+
+```bash
+#!/usr/bin/env bash
+
+#Obtiene la pagina publicada en el nodo2
+#Utilizo esto para ver la conectividad del nodo1 hacia el nodo2
+wget -qO- 192.168.56.101
+```
+
 [1]: Vagrantfile
+
+
+**Para probar las vm se debe ejecutar el siguiente comando parado en el mismo directorio que el archivo Vagrantfile**
+
+```bash
+vagrant up
+```
+
+Este comando levanta automáticamente las 2 VM (nodo1 y nodo2)
+
+### **Punto 2**
+
+Cuando configuramos mas de una VM en un único archivo Vagrantfile y queremos ejecutar comandos asociados a una de esas VM, se debe ejecutar el comando y además especificar el nombre de la VM.
+
+Ejemplo:
+
+```bash
+vagrant ssh nodo1
+```
+
+En este caso nos vamos a conectar por ssh a la VM llamada nodo1.
+
+Si queremos acceder por ssh al nodo2:
+
+```bash
+vagrant ssh nodo2
+```
+
+En el siguiente video se puede ver como se levantan las 2 VM y se prueba la conexión entre ambas:
+
+[Video levantar 2 vm Vagrant](https://drive.google.com/file/d/1CQI9PpELPi-armURDRi9zJUAj9EB2-_O/view?usp=sharing)
+
+
+
