@@ -138,9 +138,6 @@ Los scripts de aprovisionamiento son practicamente iguales
 wget -qO- 192.168.56.101
 ```
 
-[1]: Vagrantfile
-
-
 **Para probar las vm se debe ejecutar el siguiente comando parado en el mismo directorio que el archivo Vagrantfile**
 
 ```bash
@@ -171,5 +168,89 @@ En el siguiente video se puede ver como se levantan las 2 VM y se prueba la cone
 
 [Video levantar 2 vm Vagrant](https://drive.google.com/file/d/1CQI9PpELPi-armURDRi9zJUAj9EB2-_O/view?usp=sharing)
 
+### **Punto 3,4 y 5**
+
+Para este punto se debe forkear el siguiene repo:
+
+[https://gitlab.com/matiasnicolas.vargas/schoolofdevopsdocker](https://gitlab.com/matiasnicolas.vargas/schoolofdevopsdocker)
+
+El fork se encuentra disponible en:
+
+[https://gitlab.com/jlarrayoz/schoolofdevopsdocker](https://gitlab.com/jlarrayoz/schoolofdevopsdocker)
+
+En nuestro caso para simplificar la tarea se copio el contenido del fork dentro de la carpeta ['app_example'][2]
+
+Esta carpeta contiene 2 proyectos:
+
+- rampupBackend: Backend del proyecto
+- rampupFrontEnd: Frontend del proyecto
+
+#### **FrontEnd**
+
+Dentro del proyecto se agregaron los siguiente archivos:
+
+- [Dockerfile][3]
+- .env (Definición de variables de entorno) 
+
+_El proyecto de frontend se mantuvo idem al que se forkeo, no se realizaron cambios_
+
+#### **Backend**
+
+Dentro del proyecto se agregaron los siguiente archivos:
+
+- [Dockerfile][4]
+- .env (Definición de variables de entorno) 
+
+A este proyecto se le realizaron varios cambios. Se modificó el archivo package.json:
+
+Se cambio esta linea:
+
+```yaml
+ "scripts": {
+    "test": "mocha",
+    "start": "SET NODE_ENV=dev && node server.js"
+  },
+```
+
+```yaml
+ "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+```
+
+El comando SET no se estaba reconociendo al correr el contenedor por lo que se removio, analizando el código se vio que no era necesario que estuviera ahí.
+
+#### **DOCKER-COMPOSE**
+
+Este es el compose que brinda solución al punto 5:
+
+- [docker-compose.yml][5]
+
+Para poder levantar el compose previamente se tiene que generar la imagen correspondiente a cada proyecto (backend y frontend).
+
+Con tal propósito se puede ejecutar el script **generarImagenes.sh (sh generarImagenes.sh)**. Este script genera la imagen para ambos proyectos.
+
+Para correr el compose se debe ejecutar el siguiente comando:
+
+```bash
+docker compose up
+```
+
+_El comando se debe ejecutar parado e
+n la misma carpeta que contiene el archivo del compose._
+
+Para acceder al frontend de la app debemos ingresar a la siguiente URL en el navegador:
+
+[http://localhost:8080/](http://localhost:8080/)
+
+En el siguiente link se puede ver video del compose funcionando:
+
+[Levantando el compose](https://drive.google.com/file/d/1CQI9PpELPi-armURDRi9zJUAj9EB2-_O/view?usp=sharing)
 
 
+[1]: Vagrantfile
+[2]: app_example
+[3]: app_example/schoolofdevopsdocker/rampupFrontend/Dockerfile
+[4]: app_example/schoolofdevopsdocker/rampupBackend/Dockerfile
+[5]: docker-compose.yml
