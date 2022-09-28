@@ -246,7 +246,7 @@ Para acceder al frontend de la app debemos ingresar a la siguiente URL en el nav
 
 En el siguiente link se puede ver video del compose funcionando:
 
-[Levantando el compose](https://drive.google.com/file/d/1CQI9PpELPi-armURDRi9zJUAj9EB2-_O/view?usp=sharing)
+[Levantando el compose](https://drive.google.com/file/d/16ud5FN-dxjMh0uyHANhA7a7KYmRUJRvJ/view?usp=sharing)
 
 
 [1]: Vagrantfile
