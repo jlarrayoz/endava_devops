@@ -9,6 +9,8 @@ services:
       MYSQL_DATABASE: movie_db
       MYSQL_USER: appuser
       MYSQL_PASSWORD: mysqlpass
+    networks:
+      - back-tier
   #Servicio correspondiente al backend de la app
   api:
     image: backend:1.0.0
@@ -23,6 +25,9 @@ services:
       DB_NAME: movie_db
     depends_on:
       - mysql
+    networks:
+      - back-tier
+
   #Servicio correspondiente al frotnend de la app
   webapp:
     image: frontend:1.0.0
@@ -31,4 +36,11 @@ services:
     environment:
       PORT: 3000
       BACKEND_URL: apihost:3030
+    networks:
+      - front-tier
+      - back-tier
+
+networks:
+  front-tier: {}
+  back-tier: {}
 

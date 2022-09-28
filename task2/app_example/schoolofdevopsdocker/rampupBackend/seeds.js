@@ -11,7 +11,7 @@ async function main () {
   try {
 
     console.log("************ Wait for mysql init");
-    await sleep(5000);
+    await sleep(10000);
     console.log("************ Continue with execution");
 
     const pool = mysql.createPool({
