@@ -2,6 +2,13 @@
 
 Solución de la segunda homework asignada en el curso
 
+### **Videos mostrando la solución**
+
+[Punto 1 y 2 - Video levantar 2 vm Vagrant](https://drive.google.com/file/d/1CQI9PpELPi-armURDRi9zJUAj9EB2-_O/view?usp=sharing)
+
+[Punto 3, 4 y 5 - Video Levantando el compose](https://drive.google.com/file/d/16ud5FN-dxjMh0uyHANhA7a7KYmRUJRvJ/view?usp=sharing)
+
+
 ### **Punto 1**
 
 El archivo **_['Vagrantfile'][1]_** contiene el punto uno de la tarea.
@@ -246,7 +253,7 @@ Para acceder al frontend de la app debemos ingresar a la siguiente URL en el nav
 
 En el siguiente link se puede ver video del compose funcionando:
 
-[Levantando el compose](https://drive.google.com/file/d/16ud5FN-dxjMh0uyHANhA7a7KYmRUJRvJ/view?usp=sharing)
+[Video Levantando el compose](https://drive.google.com/file/d/16ud5FN-dxjMh0uyHANhA7a7KYmRUJRvJ/view?usp=sharing)
 
 
 [1]: Vagrantfile
