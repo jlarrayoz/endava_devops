@@ -225,8 +225,26 @@ Se cambio esta linea:
     "start": "node server.js"
   },
 ```
-
 El comando SET no se estaba reconociendo al correr el contenedor por lo que se removio, analizando el código se vio que no era necesario que estuviera ahí.
+
+También se modificó el archivo seeds.js para lograr que se ejecute la carga inicial de datos en el compose y además espere a que el container de mysql este levantado para ejecutar los scripts:
+
+```yaml
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+async function main () {
+  try {
+
+    console.log("************ Wait for mysql init");
+    await sleep(10000);
+    console.log("************ Continue with execution");
+```
+
+Con este cambio se logra que al levantar el compose, se espere 10 segundos antes de ejecutar la carga inicial, asegurando de alguna forma que el container de mysql tuvo tiempo de levantar.
 
 #### **DOCKER-COMPOSE**
 
