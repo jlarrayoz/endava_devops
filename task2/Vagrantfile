@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
 
     #Configuracion del port forwarding entre host y guest
     nodo1.vm.network :forwarded_port, guest: 80, host: 4567
+    nodo1.vm.network :forwarded_port, guest: 8080, host: 8080
 
     #Defino una private_network y le asigno una ip al nodo1
     #La ip debe estar en el rango: Ranges: 192.168.56.0/21
