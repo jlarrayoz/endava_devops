@@ -41,8 +41,8 @@ services:
       - front-tier
       - back-tier
     deploy:
+      replicas: 2    
       placement:
-        replicas: 2
         max_replicas_per_node: 1
 networks:
   front-tier: {}
