@@ -42,3 +42,10 @@ sudo docker push 127.0.0.1:5000/backend:1.0.0 && sudo docker push 127.0.0.1:5000
 por ultimo subimos el stack al swarm (dentro de la carpeta swarm):
 
 sudo docker stack deploy --compose-file docker-compose.yml stackdemo
+
+### Para ver como quedo compuesto el stack
+sudo docker stack services stackdemo
+
+### Para dar de baja el stack
+
+sudo docker stack rm stackdemo
