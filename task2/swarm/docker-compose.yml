@@ -42,21 +42,7 @@ services:
       - back-tier
     deploy:
       placement:
-        constraints: [node.hostname == nodo1]
-  #Servicio correspondiente al frotnend de la app
-  webapp_dos:
-    image: 127.0.0.1:5000/frontend:1.0.0
-    ports:
-      - 8080:3000
-    environment:
-      PORT: 3000
-      BACKEND_URL: apihost:3030
-    networks:
-      - front-tier
-      - back-tier
-    deploy:
-      placement:
-        constraints: [node.hostname == nodo2]
+        max_replicas_per_node: 1
 networks:
   front-tier: {}
   back-tier: {}

@@ -1,9 +1,12 @@
+### Levantar las 2 vm con vagrant
+vagrant up
+
 ### Inicializar el swarm con el nodo manager (nodo1)
 sudo docker swarm init --advertise-addr 192.168.56.100
 
 ### Para agregar un worker al swarm, ejecutar el comando que te devuelve el paso anerior. En este caso (nodo2):
 
-sudo docker swarm join --token SWMTKN-1-00dm124srdc532zh77a2uuzwki0ge3nabpkkj4a4nqrmha5v4h-crrd0hdio3m902580f5grgpeu 192.168.56.100:2377
+sudo docker swarm join --token TOKEN_DEL_PASO_ANTERIOR 192.168.56.100:2377
 
 ### Para ver el estado del swarm en el nodo1:
 
@@ -30,14 +33,12 @@ sudo docker service create --name registry --publish published=5000,target=5000 
 
 Luego que subir la imagenes que al registry local. Primeto tenemos que taguearlas:
 
-sudo docker tag backend:1.0.0 127.0.0.1:5000/backend:1.0.0
-sudo docker tag frontend:1.0.0 127.0.0.1:5000/frontend:1.0.0
+sudo docker tag backend:1.0.0 127.0.0.1:5000/backend:1.0.0 && sudo docker tag frontend:1.0.0 127.0.0.1:5000/frontend:1.0.0
 
 Luego las pusheamos:
 
-sudo docker push 127.0.0.1:5000/backend:1.0.0
-sudo docker push 127.0.0.1:5000/frontend:1.0.0
+sudo docker push 127.0.0.1:5000/backend:1.0.0 && sudo docker push 127.0.0.1:5000/frontend:1.0.0
 
-por ultimo subimos el stack al swarm:
+por ultimo subimos el stack al swarm (dentro de la carpeta swarm):
 
-sudo docker stack deploy --compose-file docker-compose.yml demo
+sudo docker stack deploy --compose-file docker-compose.yml stackdemo

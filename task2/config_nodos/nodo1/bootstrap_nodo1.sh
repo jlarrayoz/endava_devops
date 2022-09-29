@@ -19,6 +19,9 @@ apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 #Instalar git (ya viene en la imagen utilizada)
 sudo apt-get install -y git
 
+#Clono el repo donde esta el codigo de la tarea
+git clone https://github.com/jlarrayoz/endava_devops.git
+
 #Se instala apache para prueba de la VM y se copia un archivo html de ejemplo
 apt-get install -y apache2
 
