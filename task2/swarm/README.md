@@ -44,7 +44,11 @@ por ultimo subimos el stack al swarm (dentro de la carpeta swarm):
 sudo docker stack deploy --compose-file docker-compose.yml stackdemo
 
 ### Para ver como quedo compuesto el stack
+
 sudo docker stack services stackdemo
+
+### Para ver como esta corriendo el frontend (que cada replica este en nodos diferentes)
+sudo docker service ps stackdemo_webapp
 
 ### Para dar de baja el stack
 

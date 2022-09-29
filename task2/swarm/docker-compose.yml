@@ -13,6 +13,7 @@ services:
       - back-tier
   #Servicio correspondiente al backend de la app
   api:
+    #Imagen que debe estar en el registry local instalado como servicio dentro de swarm
     image: 127.0.0.1:5000/backend:1.0.0
     hostname: apihost
     ports:
@@ -27,10 +28,12 @@ services:
       - mysql
     networks:
       - back-tier
+    #Se definen 2 replicas para el backend
     deploy:
       replicas: 2
   #Servicio correspondiente al frotnend de la app
   webapp:
+    #Imagen que debe estar en el registry local instalado como servicio dentro de swarm
     image: 127.0.0.1:5000/frontend:1.0.0
     ports:
       - 8080:3000
@@ -40,6 +43,7 @@ services:
     networks:
       - front-tier
       - back-tier
+    #Se definen 2 replicas y se fuerza que haya maximo 1 replica por nodo
     deploy:
       replicas: 2    
       placement:
