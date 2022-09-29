@@ -2,12 +2,16 @@
 
 Solución de la segunda homework asignada en el curso
 
-### **Videos mostrando la solución**
+## **Videos mostrando la solución**
 
 [Punto 1 y 2 - Video levantar 2 vm Vagrant](https://drive.google.com/file/d/1CQI9PpELPi-armURDRi9zJUAj9EB2-_O/view?usp=sharing)
 
 [Punto 3, 4 y 5 - Video Levantando el compose](https://drive.google.com/file/d/16ud5FN-dxjMh0uyHANhA7a7KYmRUJRvJ/view?usp=sharing)
 
+[Punto 6 - Cluster docker swarm](https://drive.google.com/file/d/1zQujCCSbW7c9Tk4T5coOHulIZ7gxNKPw/view?usp=sharing)
+
+
+# **SOLUCION DE LA TAREA**
 
 ### **Punto 1**
 
@@ -274,8 +278,13 @@ En el siguiente link se puede ver video del compose funcionando:
 [Video Levantando el compose](https://drive.google.com/file/d/16ud5FN-dxjMh0uyHANhA7a7KYmRUJRvJ/view?usp=sharing)
 
 
+### **Punto 6**
+
+La explicación en detalle del punto 6 se encuentra en el archivo ['README.md'][6] dentro de la carpeta swarm.
+
 [1]: Vagrantfile
 [2]: app_example
 [3]: app_example/schoolofdevopsdocker/rampupFrontend/Dockerfile
 [4]: app_example/schoolofdevopsdocker/rampupBackend/Dockerfile
 [5]: docker-compose.yml
+[6]: swarm/README.md

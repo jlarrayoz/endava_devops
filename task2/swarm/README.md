@@ -137,4 +137,10 @@ Para probar que la app este funcioando correctamente en la maquina host acceder 
 http://localhost:8080
 ```
 
+### Video
+
+Para ver el video del paso a paso del armado del cluster swarm hacer clic en el siguiente link:
+
+[Punto 6 - Cluster docker swarm](https://drive.google.com/file/d/1zQujCCSbW7c9Tk4T5coOHulIZ7gxNKPw/view?usp=sharing)
+
 [1]: docker-compose.yml
