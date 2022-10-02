@@ -150,6 +150,23 @@ install_docker() {
 
 }
 
+#Instalar Jenkins job builder
+install_jjb() {
+  echo ""
+
+  blueprint 'Verificando instalación previa de jenkins-jobs ....'
+  
+  if type jenkins-jobs; then
+    echo se encontro jenkins-jobs en la VM
+    redprint 'No se va a instalar jenkins-jobs porque ya esta instalado'
+  else
+    greenprint 'Instalando jenkins job builder...'
+    sudo apt install -y python3-jenkins-job-builder  
+  fi
+
+  wait_message
+}
+
 #Instalacion del plugin Configuration as Code de Jenkins
 #Para la instalacion vamos a usar jenkins-cli
 #https://www.jenkins.io/doc/book/managing/plugins/#install-with-cli
@@ -225,18 +242,20 @@ $(blueprint 'MENU INSTALACION DE JENKINS')
 
 $(greenprint '1)') Instalar JAVA
 $(greenprint '2)') Instalar Docker
-$(greenprint '3)') Instalar Jenkins
-$(greenprint '4)') Mostrar password por defecto
-$(greenprint '5)') Instalar plugin JCAC, DOCKER, DOCKER-WF desde la CLI
+$(greenprint '3)') Instalar JJB (Jenkins Job Builder)
+$(greenprint '4)') Instalar Jenkins
+$(greenprint '5)') Mostrar password por defecto
+$(greenprint '6)') Instalar plugins JCAC, DOCKER, DOCKER-WF desde la CLI
 $(greenprint '0)') Salir
 $(blueprint 'Elija una opción:') "
         read a
         case $a in
 	        1) install_java ; menu ;;
           2) install_docker ; menu ;;
-	        3) install_jenkins ; menu ;;
-	        4) print_password ; menu ;;
-          5) install_plugins ; menu ;;
+          3) install_jjb ; menu ;;
+	        4) install_jenkins ; menu ;;
+	        5) print_password ; menu ;;
+          6) install_plugins ; menu ;;
 			    0) fn_bye ;;
 			    *) fn_fail ;;
         esac

@@ -11,3 +11,9 @@ https://plugins.jenkins.io/configuration-as-code/
 
 ### Como instalar plugins desde la cli
 https://www.jenkins.io/doc/book/managing/plugins/#install-with-cli
+
+### Jenkins job builder
+https://jenkins-job-builder.readthedocs.io/en/latest/quick-start.html
+
+### Linea de comandos a ejecutar (dentro del dir pipeline)
+sudo jenkins-jobs --conf jenkins_jobs.ini -l info  update firstjob.yaml

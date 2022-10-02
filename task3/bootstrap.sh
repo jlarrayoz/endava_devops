@@ -10,6 +10,9 @@ cp /vagrant/credentials /home/vagrant
 #Copio el archivo de configuracion jcac
 cp /vagrant/jenkins.yaml /home/vagrant
 
+#Copio el directorio de jobs
+cp -R /vagrant/pipeline/ /home/vagrant
+
 
 ### Colors ##
 ESC=$(printf '\033') RED="${ESC}[31m"

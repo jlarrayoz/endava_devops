@@ -1,0 +1,12 @@
+- job:
+    name: my-first-pipeline
+    project-type: pipeline
+    pipeline-scm:
+      scm:
+        - git:
+            url: https://github.com/jlarrayoz/node-hello.git
+            branches:
+              - origin/master
+            clean: true
+      script-path: Jenkinsfile
+      lightweight-checkout: true        
