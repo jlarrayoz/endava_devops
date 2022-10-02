@@ -2,7 +2,12 @@
 
 Solución a la tarea de instalación de JENKINS
 
-## **Videos mostrando la solución**
+## **Resumen entrega**
+
+1. Archivo bash con menú instalación: ['installJenkins.sh'][2]
+2. Archivo de JJB con el job: ['firstjob.yaml'][4]
+3. Archivo configuración de jenkins por JCAC: ['jenkins.yaml'][3]
+4. Definición del pipeline: ['Jenkinsfile'][8]
 
 # **SOLUCION DE LA TAREA**
 
@@ -267,6 +272,44 @@ En el siguiente video podemos apreciar el pipeline funcionando:
 [Video pipeline funcionando](https://drive.google.com/file/d/1Bu0-LvqR8VnfqDdtjTvsYpbx6WXbP4Fo/view?usp=sharing)
 
 
+El pipeline esta configurado para hacer clone de un fork del repo de git dado en la tarea. En ese repo se encuentra el archivo ['Jenkinsfile'][8] que detalla la configuración de los diferentes stages, etc.
+
+```yaml
+pipeline {
+    environment {
+        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+    }
+    agent {
+        docker {
+            image 'node:6-alpine' 
+            args '-p 3000:3000' 
+        }
+    }
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'npm install' 
+            }
+        }
+        stage('Deliver') { 
+            steps {
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh 'sh deliver.sh' 
+                input message: 'Termino de usar la app? (Click "Proceed" para continuar)' 
+                sh 'sh kill.sh' 
+            }
+        }        
+    }
+}
+```
+
+El pipeline esta compuesto por 2 stages:
+
+1. Build: hace el build en un contenedor docker de la app de node de ejemplo
+2. Deliver: Levanta la app en el contendor docker y la expone en el puerto 3000. La app queda accesible desde el browser del usuario para que se pueda probar.
+
+_En un escenario real, este stage en realidad termina haciendo el deploy a la nube, o al server de producción donde deba ir la app._
+
 [1]: Vagrantfile
 [2]: installJenkins.sh
 [3]: jenkins.yaml
@@ -274,8 +317,11 @@ En el siguiente video podemos apreciar el pipeline funcionando:
 [5]: pipeline/jenkins_jobs.ini
 [6]: credentials
 [7]: pipeline/jenkins_jobs.ini
+[8]: https://github.com/jlarrayoz/node-hello/blob/master/Jenkinsfile
 
-&nbsp;
+<br/>
+<br/>
+<br/>
 
 
 ## Links de referencia
