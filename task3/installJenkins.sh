@@ -89,6 +89,9 @@ install_jenkins() {
     
     #Para que se pueda hacer sudo desde los pipelines de jenkins
     sudo usermod -a -G sudo jenkins
+
+    #Agrego el usuario del servicio de jenkins al grupo de docker
+    sudo usermod -a -G docker jenkins
     
     greenprint 'Reiniciando servicio de jenkins ...'
     sudo systemctl restart jenkins 
