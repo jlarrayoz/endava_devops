@@ -8,6 +8,7 @@ Solución a la tarea de instalación de JENKINS
 2. Archivo de JJB con el job: ['firstjob.yaml'][4]
 3. Archivo configuración de jenkins por JCAC: ['jenkins.yaml'][3]
 4. Definición del pipeline: ['Jenkinsfile'][8]
+5. Video pipeline funcionando: [Video pipeline funcionando](https://drive.google.com/file/d/1Bu0-LvqR8VnfqDdtjTvsYpbx6WXbP4Fo/view?usp=sharing)
 
 # **SOLUCION DE LA TAREA**
 
