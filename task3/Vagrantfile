@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Define la version del archivo que vamos a utilizar
+# Esto generalmente no se toca
+Vagrant.configure("2") do |config|
+
+  # Se define la configuracion de la vm
+  config.vm.define "nodo1" do |nodo1|
+    # Seleccionamos la imagen de la VM que queremos utilizar
+    # En este caso corresponde a una imagen de Ubuntu 18.04 LTS
+    # Mediante el tag config.vm.box_version tambien podemos definir una version especifica de la imagen
+    # Por mas imagenes visitar https://vagrantcloud.com/search
+    nodo1.vm.box = "ubuntu/bionic64"
+    nodo1.vm.box_version = "20220916.0.0"
+
+    #Se define un hostname para la VM
+    nodo1.vm.hostname = "nodo1"
+
+    #Configuracion del port forwarding entre host y guest (Jenkins por defecto se publica en el puerto 8080)
+    nodo1.vm.network :forwarded_port, guest: 8080, host: 8080
+    nodo1.vm.network :forwarded_port, guest: 3000, host: 3000
+
+    # Se define el script bootstrap.sh (en el mismo dir que el archivo de vagrant) para provisionar la VM
+    nodo1.vm.provision :shell, path: "bootstrap.sh"
+
+    # Configuracion especifica del provider. En nuestro caso, Virtualbox
+    nodo1.vm.provider "virtualbox" do |v|
+      # Definimos la memoria asignada a la VM (2GB en este caso)
+      v.memory = "2048"
+      v.name = "nodo1"
+    end
+
+  end
+end

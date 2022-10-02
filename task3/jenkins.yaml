@@ -1,0 +1,24 @@
+#Archivo de config de JCAC
+#Se da de alta un usuario
+jenkins:
+  systemMessage: "JENKINS configurado por plugin JCAC"
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: jlarrayoz
+         password: jlarrayoz
+  #Definimos los permisos para los usuarios
+  #En este caso se le da permisos de administrador a cualquier usuario autenticado
+  authorizationStrategy:
+      globalMatrix:
+        grantedPermissions:
+          - "Overall/Read:anonymous"
+          - "Job/Read:anonymous"
+          - "View/Read:anonymous"
+          - "Overall/Administer:authenticated"
+#Datos basicos sobre la URL donde se publica jenkins y el corro del administrador del servicio
+unclassified:
+  location:
+    url: https//localhost:8080/
+    adminAddress: juan.larrayoz@gmail.com
