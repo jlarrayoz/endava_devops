@@ -2,7 +2,7 @@
 
 <br/>
 
-# Contenido
+## Contenido
 1. [QwikLabs I](#lab1)
     1. [Conclusión](#lab1_1)
 2. [QwikLabs II](#lab2)
@@ -10,7 +10,6 @@
 
 <div id='lab1'/>
 
-<hr/>
 <br/>
 
 ## QwikLabs "Cloud I" 
