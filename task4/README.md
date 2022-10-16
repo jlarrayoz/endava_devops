@@ -1,4 +1,4 @@
-# **Task 4**
+# **Task 4 - Cloud AWS**
 
 <br/>
 
@@ -82,6 +82,12 @@
 #### **Lab terminado**
 
 ![Lab terminado](images/labTerminado.png)
+
+<br/>
+
+_Constancia de avance_
+
+![Lab finish](images/lab1Completado.png)
 
 </br>
 
