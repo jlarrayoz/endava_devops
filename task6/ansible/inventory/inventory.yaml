@@ -1,6 +1,0 @@
-virtualmachines:
-  hosts:
-    nodo1:
-      ansible_host: 192.168.56.101
-    nodo2:
-      ansible_host: 192.168.56.102

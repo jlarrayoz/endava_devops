@@ -1,0 +1,8 @@
+consul_server:
+  hosts:
+    nodo2:
+      ansible_host: 192.168.56.101
+consul_client:  
+  hosts:  
+    nodo3:
+      ansible_host: 192.168.56.102

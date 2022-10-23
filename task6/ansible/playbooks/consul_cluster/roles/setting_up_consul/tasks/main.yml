@@ -1,0 +1,19 @@
+---
+
+- name: Run server
+  when: inventory_hostname in groups['consul_server']
+  ansible.builtin.shell:
+    cmd: nohup consul agent -server -bootstrap-expect=1 -node=agent-one -bind=192.168.56.101 -data-dir=/tmp/consul -config-dir=/etc/consul.d & > /dev/null
+
+- name: Run client
+  when: inventory_hostname in groups['consul_client']
+  ansible.builtin.shell:
+    cmd: nohup consul agent -node=agent-two -bind=192.168.56.102 -enable-script-checks=true -data-dir=/tmp/consul -config-dir=/etc/consul.d & > /dev/null
+
+- name: Join client
+  when: inventory_hostname in groups['consul_client']
+  ansible.builtin.shell:
+    cmd: consul join 192.168.56.101
+
+
+

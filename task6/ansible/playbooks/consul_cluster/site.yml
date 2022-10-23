@@ -1,0 +1,17 @@
+---
+# Playbook para instalar consul
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - { debug: { msg: "Esta tarea corre local" } }  
+    - name: add repo keys
+      ansible.builtin.shell:
+        cmd: ssh-keyscan -H 192.168.56.101 >> ~/.ssh/known_hosts && ssh-keyscan -H 192.168.56.102 >> ~/.ssh/known_hosts
+
+- hosts: all
+  roles:
+    - install_consul
+    - setting_up_consul
+
+  
