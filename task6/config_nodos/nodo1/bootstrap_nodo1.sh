@@ -9,6 +9,7 @@ sudo apt install -y ansible
 ssh-keygen -b 2048 -t rsa -f /home/vagrant/.ssh/id_rsa -q -N ""
 
 #Copio la clave generada al host para luego ser copiada a los otros nodos (para que ansible pueda acceder a ellos por ssh)
+mkdir -p /vagrant/config_nodos/nodo1/ssh_key/
 cp /home/vagrant/.ssh/id_rsa.pub /vagrant/config_nodos/nodo1/ssh_key/
 
 #Copio el contenido de ansible para que el nodo lo pueda utilizar (copio inventory y playbooks)
