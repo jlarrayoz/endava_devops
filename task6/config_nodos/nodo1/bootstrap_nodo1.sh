@@ -5,9 +5,6 @@ sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt update
 sudo apt install -y ansible
 
-#Apendeamos el archivo con el inventario de nodos que seran manejados por ansible
-sudo bash -c 'cat /vagrant/ansible/inventory/inventory >> /etc/ansible/hosts'
-
 #Generar clave publica del Ansible Master para luego copiar a los diferentes nodos
 ssh-keygen -b 2048 -t rsa -f /home/vagrant/.ssh/id_rsa -q -N ""
 

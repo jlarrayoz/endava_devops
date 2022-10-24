@@ -1,19 +1,36 @@
 ---
 
-- name: Create aux dir
-  ansible.builtin.command: mkdir /home/vagrant/tmp
-  register: createtmp
+#Creamos un directorio temporal donde se van a guardar los archivos que se van a descargar mas adelante
+- name: Creates aux dir
+  file:
+    path: /home/vagrant/tmp
+    state: directory  
 
+#Bajamos las keys del repo de consul
 - name: download repo keys
   ansible.builtin.shell:
     cmd: wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
     chdir: /home/vagrant/tmp
 
+#Agregamos el repo de consul
 - name: add repo keys
   ansible.builtin.shell:
     cmd: echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 
-- name: install consul package
-  ansible.builtin.shell:
-    cmd: sudo apt update && sudo apt install consul
+#Se hace un sudo apt-get update
+#El become: true hace que se ejecute el comando como sudo
+- name: Update apt packages
+  become: true
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400 
+
+#Se instala el package de consul (sudo apt-get install consul)
+#El become: true hace que se ejecute el comando como sudo
+- name: Install consul package
+  become: true
+  ansible.builtin.apt:
+    name: consul
+    state: present
+
 

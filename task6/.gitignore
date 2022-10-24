@@ -1,0 +1,3 @@
+.vagrant
+ubuntu-bionic-18.04-cloudimg-console.log
+config_nodos/nodo1/ssh_key/id_rsa.pub

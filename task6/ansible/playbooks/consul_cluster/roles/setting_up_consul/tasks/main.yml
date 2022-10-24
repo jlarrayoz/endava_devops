@@ -1,15 +1,21 @@
 ---
 
+#Ejecuta consul como server unicamente en el nodo2
+#El when se utiliza para limitar en que server se corre la tarea
 - name: Run server
   when: inventory_hostname in groups['consul_server']
   ansible.builtin.shell:
     cmd: nohup consul agent -server -bootstrap-expect=1 -node=agent-one -bind=192.168.56.101 -data-dir=/tmp/consul -config-dir=/etc/consul.d & > /dev/null
 
+#Ejecuta consul como cliente unicamente en el nodo3
+#El when se utiliza para limitar en que server se corre la tarea
 - name: Run client
   when: inventory_hostname in groups['consul_client']
   ansible.builtin.shell:
     cmd: nohup consul agent -node=agent-two -bind=192.168.56.102 -enable-script-checks=true -data-dir=/tmp/consul -config-dir=/etc/consul.d & > /dev/null
 
+#Hace el join del cliente instalado en el nodo3 al server que esta corriendo en el nodo2
+#El when se utiliza para limitar en que server se corre la tarea
 - name: Join client
   when: inventory_hostname in groups['consul_client']
   ansible.builtin.shell:
