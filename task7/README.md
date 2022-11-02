@@ -204,7 +204,7 @@ Luego debemos:
 2. Importar el dashboard 9628
 3. Verificar que se estén colectando las métricas
 
-Para este último paso se recomienda ver el video [Tarea funcionando](https://drive.google.com/file/d/1bV5Pd-JhDsA7QVtoDwDGGrPnHxJL3kVZ/view?usp=sharing).
+Para ver el paso a paso de como ejecutar la tarea se recomienda ver el video [Tarea funcionando](https://drive.google.com/file/d/1bV5Pd-JhDsA7QVtoDwDGGrPnHxJL3kVZ/view?usp=sharing).
 
 
 <div/>
