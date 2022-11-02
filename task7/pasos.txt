@@ -1,0 +1,27 @@
+PASOS A SEGUIR
+
+LUEGO DE LEVANTAR VAGRANT
+
+TARGET
+
+1) Conectarnos por SSH (ssh root@192.168.56.103)
+2) Ejecutar el compose
+3) Verificar que se estén exponiendo las métricas de Postgres (http://192.168.56.103:9187/metrics)
+
+PROMETHEUS
+
+1) Conectarnos por SSH (ssh root@192.168.56.104)
+2) Ejecutar el compose
+3) Verificar que este arriba el servicio de prometheus (http://192.168.56.104:9090)
+
+
+LOCALHOST
+
+1) Abrir GRAFANA (http://192.168.56.104:3000)
+2) Crear el datasource para prometheus (URL:http://192.168.56.104:9090)
+2) Importar el dashboard 9628
+3) Verificar que se estén colectando las métricas
+
+
+https://drive.google.com/file/d/1bV5Pd-JhDsA7QVtoDwDGGrPnHxJL3kVZ/view?usp=sharing
+

@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
     nodo1.vm.box_version = "20220916.0.0"
 
     #Se define un hostname para la VM
-    nodo1.vm.hostname = "nodo1"
+    nodo1.vm.hostname = "“prometheus"
 
     #Configuracion del port forwarding entre host y guest
     nodo1.vm.network :forwarded_port, guest: 80, host: 4567
