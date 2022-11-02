@@ -2,10 +2,12 @@
 
 Solución a la tarea de Monitoring
 
+Se hizo una copia del repo original dentro de mi repo personal (público) y se realizaron algunos cambios que se detallan a continuación (además de los solicitados por la tarea) para ejecutar el ambiente de forma más sencilla y en mi ambiente de trabajo.
 
 <br/>
 
 ## Contenido
+
 1. [Video de la tarea funcionando](https://drive.google.com/file/d/1bV5Pd-JhDsA7QVtoDwDGGrPnHxJL3kVZ/view?usp=sharing)
 2. [Creación de las VM con Vagrant](#vagrant)
 3. [Cambios en el compose del target server](#target_server)
