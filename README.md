@@ -12,7 +12,7 @@ Repo creado para compartir con los profes la solución a las diferentes homework
 4. *[Cloud - AWS][4]*
 5. *[Infrastructure As Code][5]*
 6. *[Service Discovery and CM][6]*
-7. *[Monitoring][6]*
+7. *[Monitoring][7]*
 
 [1]: task1
 [2]: task2
